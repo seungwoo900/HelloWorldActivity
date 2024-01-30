@@ -2,6 +2,7 @@ package edu.temple.helloworld
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -10,6 +11,8 @@ class MainActivity : AppCompatActivity() {
 
     // Declare view properties - the first one is done for you
     lateinit var displayTextView: TextView
+    lateinit var enteredName: EditText
+    lateinit var clickMeButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,10 +20,13 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize with views defined in Layout - the first one is done for you
         displayTextView = findViewById(R.id.displayTextView)
-
+        enteredName = findViewById(R.id.nameEditText)
+        clickMeButton = findViewById(R.id.clickMeButton)
         
         // Respond to button click event per specifications
-
+        clickMeButton.setOnClickListener{
+            displayTextView.text = "Hello, ${enteredName.text}"
+        }
 
     }
 }
